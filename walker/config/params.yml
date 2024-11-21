@@ -1,0 +1,4 @@
+/**/*:
+  ros__parameters:
+    max_linear_speed: 0.2
+    max_angular_speed: 0.1
