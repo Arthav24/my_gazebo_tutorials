@@ -1,0 +1,14 @@
+3 warnings and 0 error generated.
+Error while processing /home/arthavnuc/classwork/soft_700/gazebo_ws/build/../src/my_gazebo_tutorials/walker/src/walker_node.cpp.
+/home/arthavnuc/classwork/soft_700/gazebo_ws/build/../src/my_gazebo_tutorials/walker/src/walker_node.cpp:334:5: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+int main(int argc, char *argv[]) {
+~~~ ^
+auto                             -> int
+/home/arthavnuc/classwork/soft_700/gazebo_ws/build/../src/my_gazebo_tutorials/walker/src/walker_node.cpp:340:3: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+  while (rclcpp::ok()) {
+  ^
+/home/arthavnuc/classwork/soft_700/gazebo_ws/build/../src/my_gazebo_tutorials/walker/src/walker_node.cpp:342:23: warning: variable 'node' is not initialized [cppcoreguidelines-init-variables]
+    rclcpp::spin_some(node);
+                      ^
+                           = 0
+

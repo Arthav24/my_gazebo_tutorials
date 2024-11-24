@@ -1,0 +1,71 @@
+20 errors generated.
+Error while processing /home/arthavnuc/classwork/soft_700/gazebo_ws/build/../src/my_gazebo_tutorials/walker/src/walker_node.cpp.
+error: too many errors emitted, stopping now [clang-diagnostic-error]
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:550:10: error: no member named 'optional' in namespace 'std' [clang-diagnostic-error]
+    std::optional<CallbackInfoVariant>
+    ~~~~~^
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:550:19: error: use of undeclared identifier 'CallbackInfoVariant' [clang-diagnostic-error]
+    std::optional<CallbackInfoVariant>
+                  ^
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:551:5: error: use of undeclared identifier 'optional_pending_request' [clang-diagnostic-error]
+    optional_pending_request = this->get_and_erase_pending_request(request_header->sequence_number);
+    ^
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:552:10: error: use of undeclared identifier 'optional_pending_request' [clang-diagnostic-error]
+    if (!optional_pending_request) {
+         ^
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:555:21: error: use of undeclared identifier 'optional_pending_request' [clang-diagnostic-error]
+    auto & value = *optional_pending_request;
+                    ^
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:558:14: error: no member named 'holds_alternative' in namespace 'std' [clang-diagnostic-error]
+    if (std::holds_alternative<Promise>(value)) {
+        ~~~~~^
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:558:32: error: unexpected type name 'Promise': expected expression [clang-diagnostic-error]
+    if (std::holds_alternative<Promise>(value)) {
+                               ^
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:561:21: error: no member named 'holds_alternative' in namespace 'std' [clang-diagnostic-error]
+    } else if (std::holds_alternative<CallbackTypeValueVariant>(value)) {
+               ~~~~~^
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:561:39: error: unexpected type name 'CallbackTypeValueVariant': expected expression [clang-diagnostic-error]
+    } else if (std::holds_alternative<CallbackTypeValueVariant>(value)) {
+                                      ^
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:568:21: error: no member named 'holds_alternative' in namespace 'std' [clang-diagnostic-error]
+    } else if (std::holds_alternative<CallbackWithRequestTypeValueVariant>(value)) {
+               ~~~~~^
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:568:39: error: unexpected type name 'CallbackWithRequestTypeValueVariant': expected expression [clang-diagnostic-error]
+    } else if (std::holds_alternative<CallbackWithRequestTypeValueVariant>(value)) {
+                                      ^
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:702:10: error: use of class template 'std::lock_guard' requires template arguments [clang-diagnostic-error]
+    std::lock_guard guard(pending_requests_mutex_);
+         ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/bits/std_mutex.h:223:11: note: template is declared here
+    class lock_guard
+          ^
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:749:10: error: use of class template 'std::lock_guard' requires template arguments [clang-diagnostic-error]
+    std::lock_guard guard(pending_requests_mutex_);
+         ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/bits/std_mutex.h:223:11: note: template is declared here
+    class lock_guard
+          ^
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:768:10: error: use of class template 'std::lock_guard' requires template arguments [clang-diagnostic-error]
+    std::lock_guard guard(pending_requests_mutex_);
+         ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/bits/std_mutex.h:223:11: note: template is declared here
+    class lock_guard
+          ^
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:788:36: error: no template named 'variant' in namespace 'std' [clang-diagnostic-error]
+  using CallbackInfoVariant = std::variant<
+                              ~~~~~^
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:794:52: error: unknown type name 'CallbackInfoVariant' [clang-diagnostic-error]
+  async_send_request_impl(const Request & request, CallbackInfoVariant value)
+                                                   ^
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:808:8: error: no template named 'optional' in namespace 'std' [clang-diagnostic-error]
+  std::optional<CallbackInfoVariant>
+  ~~~~~^
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:808:17: error: use of undeclared identifier 'CallbackInfoVariant' [clang-diagnostic-error]
+  std::optional<CallbackInfoVariant>
+                ^
+/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:830:7: error: use of undeclared identifier 'CallbackInfoVariant' [clang-diagnostic-error]
+      CallbackInfoVariant>>
+      ^
+Found compiler error(s).
+

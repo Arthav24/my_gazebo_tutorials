@@ -80,7 +80,7 @@ rosdep install --from-path src --ignore-src -y # assuming ROS_DISTRO is set to h
 ## How to Compile:
 
 ```bash
-cd ~/colcon_ws/
+cd ~/gazebo_ws/
 colcon clean workspace
 source /opt/ros/humble/setup.bash  # if needed
 colcon build
