@@ -28,7 +28,6 @@ namespace walker {
  */
 WalkerNode::WalkerNode(rclcpp::Node::SharedPtr node)
     : node_(node), direction_(Direction::CLOCKWISE) {
-
   this->declareAndLoadParameter(
       "max_linear_speed", max_linear_vel_param_,
       "Maximum linear velocity the walker will generate", true, false, false,
@@ -64,7 +63,6 @@ void WalkerNode::declareAndLoadParameter(
     const std::optional<double> &to_value,
     const std::optional<double> &step_value,
     const std::string &additional_constraints) {
-
   rcl_interfaces::msg::ParameterDescriptor param_desc;
   param_desc.description = description;
   param_desc.additional_constraints = additional_constraints;
@@ -144,7 +142,6 @@ void WalkerNode::declareAndLoadParameter(
  */
 rcl_interfaces::msg::SetParametersResult WalkerNode::parametersCallback(
     const std::vector<rclcpp::Parameter> &parameters) {
-
   for (const auto &param : parameters) {
     for (auto &auto_reconfigurable_param : auto_reconfigurable_params_) {
       if (param.get_name() == std::get<0>(auto_reconfigurable_param)) {
@@ -165,7 +162,6 @@ rcl_interfaces::msg::SetParametersResult WalkerNode::parametersCallback(
  * @brief Sets up subscribers, publishers, etc. to configure the node
  */
 void WalkerNode::setup() {
-
   // callback for dynamic parameter configuration
   parameters_callback_ = node_->add_on_set_parameters_callback(
       std::bind(&WalkerNode::parametersCallback, this, std::placeholders::_1));
@@ -208,12 +204,10 @@ void WalkerNode::end_callback(
     std::shared_ptr<std_srvs::srv::Trigger_Response> resp) {
   // change state to idle
   try {
-
     transition(std::make_shared<IDLE>());
     resp->message = "Changed state to IDLE";
     resp->success = true;
   } catch (const std::exception e) {
-
     resp->message = "Failed to changes state to IDLE";
     resp->success = false;
   }
@@ -280,7 +274,7 @@ void WalkerNode::laserScanCallback(const sensor_msgs::msg::LaserScan &msg) {
  */
 void IDLE::execute(walker::WalkerNode *node) {
   geometry_msgs::msg::Twist cmd;
-  cmd.linear.x = 0.0; // Move forward
+  cmd.linear.x = 0.0;  // Move forward
   cmd.angular.z = 0.0;
   node->publisher_->publish(cmd);
 }
@@ -300,7 +294,7 @@ void MoveForward::execute(WalkerNode *node) {
   }
 
   geometry_msgs::msg::Twist cmd;
-  cmd.linear.x = node->max_linear_vel_param_; // Move forward
+  cmd.linear.x = node->max_linear_vel_param_;  // Move forward
   cmd.angular.z = 0.0;
   node->publisher_->publish(cmd);
 }
@@ -329,7 +323,7 @@ void Rotate::execute(WalkerNode *node) {
   node->publisher_->publish(cmd);
 }
 
-} // namespace walker
+}  // namespace walker
 
 void signalHandler(int sig) {
   RCLCPP_INFO_STREAM(rclcpp::get_logger("WALKER_MAIN"),
@@ -338,12 +332,11 @@ void signalHandler(int sig) {
 }
 
 int main(int argc, char *argv[]) {
-
   rclcpp::init(argc, argv);
   signal(SIGINT, signalHandler);
   auto node = rclcpp::Node::make_shared("walker_robot");
   auto walker = std::make_shared<walker::WalkerNode>(node);
-  rclcpp::Rate loop_rate(10); // 10 Hz
+  rclcpp::Rate loop_rate(10);  // 10 Hz
   while (rclcpp::ok()) {
     walker->run();
     rclcpp::spin_some(node);
